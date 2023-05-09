@@ -30,7 +30,6 @@ export default function Shop() {
                 quantity: 1
             }
 
-            console.log(newItem)
             setOrder([...order, newItem])
         } else {
             const newOrder = order.map((orderItem: basketItem, index) => {
@@ -85,6 +84,7 @@ export default function Shop() {
     }
 
     useEffect(() => {
+        console.log(process.env)
         fetch(API_URL, {
             headers: {
                 Authorization: API_KEY
