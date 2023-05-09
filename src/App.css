@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+.content {
+    min-height: calc(100vh - 56px - 56px);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.preloader_wrapper {
+    height: calc(100vh - 56px - 56px);
+    width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dots {
+    width: 44.6px;
+    height: 44.6px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.dots::before,
+.dots::after {
+    content: "";
+    width: 17.3px;
+    background: radial-gradient(farthest-side, #cfe2ff 90%, #0000) top,
+        radial-gradient(farthest-side, #cfe2ff 90%, #0000) bottom;
+    background-size: 17.3px 17.3px;
+    background-repeat: no-repeat;
+    transform-origin: 50% calc(100% - 8.6px);
+    animation: dots-wila4g 1s infinite;
 }
 
-.App-link {
-  color: #61dafb;
+.dots::after {
+    transform-origin: 50% 8.6px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes dots-wila4g {
+
+    70%,
+    100% {
+        transform: rotate(-270deg);
+    }
+}
+
+.cart {
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    bottom: 5rem;
+    right: 3rem;
+    cursor: pointer;
+    border-radius: 5%;
+    z-index: 5;
+    padding: 1rem;
+}
+
+.bi {
+    font-size: 35px;
+    cursor: pointer;
+}
+
+
+.basket-icon::before {
+    transform: translateY(5px);
+}
+
+
+.basket-list {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 50rem;
+    max-width: 95%;
+    animation: show 500ms ease-in-out;
+}
+
+@keyframes show {
+    from {
+        top: 70%;
+        opacity: 0;
+    }
+
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+.alert {
+    position: fixed;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5rem !important;
+    animation: fade-in 250ms ease-in-out;
+    -webkit-animation: fade-in 250ms ease-in-out;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.item-card {
+    height: 100%;
 }
